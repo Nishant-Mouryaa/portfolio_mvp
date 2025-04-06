@@ -1,0 +1,507 @@
+.hero-section {
+    position: relative;
+    padding: 8rem 0;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  
+  .hero-background {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--darker) 0%, #1e1b4b 100%);
+    z-index: -1;
+  }
+  
+  .hero-background::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+    opacity: 0.8;
+  }
+  
+  .hero-content {
+    text-align: left;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    background-color: rgba(99, 102, 241, 0.2);
+    color: var(--primary-extra-light);
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--primary);
+    backdrop-filter: blur(4px);
+    gap: 0.5rem;
+  }
+  
+  .badge::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    display: inline-block;
+    animation: pulse 2s infinite;
+  }
+  
+  .highlight {
+    background: linear-gradient(90deg, var(--primary), var(--primary-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline;
+  }
+  
+  .subheadline {
+    font-size: clamp(1.2rem, 2vw, 1.4rem);
+    margin: 2rem 0;
+    color: var(--light);
+    max-width: 600px;
+  }
+  
+  .trust-badges {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .trust-item {
+    font-size: 0.9rem;
+    color: var(--gray);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .trust-item::before {
+    content: '✓';
+    color: var(--success);
+    font-weight: bold;
+  }
+  
+  .hero-visual {
+    position: relative;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Enhanced HeroVisual Styles */
+  .portfolio-mockup {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 440px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 
+      0 25px 50px -12px rgba(0, 0, 0, 0.25),
+      0 0 0 1px rgba(255, 255, 255, 0.1);
+    transform-style: preserve-3d;
+    animation: float 6s ease-in-out infinite;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: var(--darker);
+    margin: 0 auto;
+  }
+  
+  .portfolio-mockup:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 
+      0 30px 60px -10px rgba(0, 0, 0, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.15);
+  }
+  
+  .mockup-reflection {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.02) 100%
+    );
+    pointer-events: none;
+    z-index: 3;
+  }
+  
+  .mockup-frame {
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(
+      145deg, 
+      rgba(30, 27, 75, 0.9), 
+      rgba(15, 23, 42, 0.95)
+    );
+    backdrop-filter: blur(10px);
+    z-index: 1;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .mockup-screen {
+    position: absolute;
+    inset: 12px;
+    border-radius: calc(var(--radius-lg) - 5px);
+    overflow: hidden;
+    background-color: var(--dark);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .mockup-header {
+    height: 64px;
+    background: linear-gradient(
+      90deg, 
+      var(--primary-dark), 
+      var(--primary)
+    );
+    display: flex;
+    align-items: center;
+    padding: 0 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mockup-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 1rem;
+  }
+  
+  .mockup-logo {
+    font-weight: 700;
+    color: white;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .logo-icon {
+    width: 24px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+  }
+  
+  .mockup-nav-items {
+    display: flex;
+    gap: 1.5rem;
+    flex-grow: 1;
+    justify-content: center;
+  }
+  
+  .mockup-nav-item {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem 0;
+  }
+  
+  .mockup-nav-item.active {
+    color: white;
+    font-weight: 600;
+  }
+  
+  .nav-indicator {
+    position: absolute;
+    bottom: 0;
+    width: 20px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+  }
+  
+  .mockup-nav-item:hover {
+    color: white;
+  }
+  
+  .mockup-user {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  
+  .user-notification {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 18px;
+    height: 18px;
+    background: var(--error);
+    border-radius: 50%;
+    color: white;
+    font-size: 0.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--primary-dark);
+  }
+  
+  .mockup-content {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex-grow: 1;
+    overflow-y: auto;
+  }
+  
+  .mockup-project {
+    border-radius: var(--radius);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+    cursor: pointer;
+  }
+  
+  .mockup-project:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-sm);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+  
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+  }
+  
+  .project-avatar {
+    width: 25px;
+    height: 25px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: white;
+  }
+  
+  .project-badge {
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    color: white;
+  }
+  
+  .project-body {
+    margin-bottom: 0.75rem;
+  }
+  
+  .project-title {
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .project-description {
+    font-size: 0.75rem;
+    color: var(--gray);
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+  
+  .project-tech {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .tech-pill {
+    font-size: 0.65rem;
+    padding: 0.25rem 0.5rem;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-full);
+    color: var(--light-gray);
+  }
+  
+  .project-footer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: auto;
+  }
+  
+  .project-stat {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+    color: var(--gray);
+  }
+  
+  .stat-icon {
+    font-size: 0.9rem;
+  }
+  
+  .project-button {
+    margin-left: auto;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+  }
+  
+  .project-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .button-icon {
+    font-size: 0.9rem;
+  }
+  
+  .mockup-footer {
+    display: flex;
+    background: rgba(15, 23, 42, 0.8);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 0.5rem;
+  }
+  
+  .footer-tab {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.5rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.7rem;
+    color: var(--gray);
+    transition: var(--transition-fast);
+  }
+  
+  .footer-tab.active {
+    color: var(--primary-light);
+  }
+  
+  .footer-tab:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .tab-icon {
+    font-size: 1.1rem;
+  }
+  
+  .mockup-browser-controls {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    display: flex;
+    gap: 8px;
+    z-index: 4;
+  }
+  
+  .browser-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transition: var(--transition-fast);
+  }
+  
+  .browser-dot.red {
+    background-color: #ff5f56;
+  }
+  
+  .browser-dot.red:hover {
+    background-color: #ff3b30;
+  }
+  
+  .browser-dot.yellow {
+    background-color: #ffbd2e;
+  }
+  
+  .browser-dot.yellow:hover {
+    background-color: #ffa800;
+  }
+  
+  .browser-dot.green {
+    background-color: #27c93f;
+  }
+  
+  .browser-dot.green:hover {
+    background-color: #1aad2f;
+  }
+  
+  /* Scrollbar styling */
+  .mockup-content::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .mockup-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+  }
+  
+  .mockup-content::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 3px;
+  }
+  
+  /* Animations */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
